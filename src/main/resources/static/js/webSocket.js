@@ -5,13 +5,14 @@
 window.onload = function () {
 	var map;
 	var mapView;
-	const markerImg = "/image/marker-blue.png";
+	const myMarkerImg = "/image/marker.png";
+	const markerImg = "/image/marker-gold.png";
 	let markerVectorSource = new ol.source.Vector();
 	let markerLayer;
 	let markers = [];
 
-	const lat = 37.4830152;
-	const lon = 126.89008;
+	var lat = 37.4830152;
+	var lon = 126.89008;
 
 	var usernamePage = document.querySelector('#username-page');
 	var chatPage = document.querySelector('#chat-page');
@@ -149,7 +150,7 @@ window.onload = function () {
 				lat = position.coords.latitude;
 
 			}, function (error) {
-				console.error(error);
+				console.error("error: " + error);
 			}, {
 				enableHighAccuracy: false,
 				maximumAge: 0,
@@ -207,7 +208,7 @@ window.onload = function () {
 
 		markers[0].setStyle(new ol.style.Style({
 			image: new ol.style.Icon({
-				src: markerImg,
+				src: myMarkerImg,
 			}),
 		}));
 
